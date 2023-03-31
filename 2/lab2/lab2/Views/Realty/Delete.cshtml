@@ -1,0 +1,72 @@
+﻿@model lab2.Models.Realty
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Realty</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.realty_type)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.realty_type)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.area)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.area)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.realty_address)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.realty_address)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.cost)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.cost)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ownerid)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ownerid)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "ShowAllRealty")
+            </div>
+        }
+    </div>
+</body>
+</html>

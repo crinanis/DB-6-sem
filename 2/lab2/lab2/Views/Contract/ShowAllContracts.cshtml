@@ -1,0 +1,66 @@
+﻿@model lab2.Models.IContract
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAllContracts</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Insert")
+        @Html.ActionLink("My Task", "ShowContractsWithDate")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.realtyid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.realtorid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fare_code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.term)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sign_date)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model.ShowAllContracts) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.realtyid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.realtorid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fare_code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.term)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sign_date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.contract_id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.contract_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.contract_id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
