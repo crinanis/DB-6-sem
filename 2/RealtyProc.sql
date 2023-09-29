@@ -3,7 +3,7 @@ CREATE OR ALTER PROCEDURE Usp_InsertUpdateDelete_Realty
 @RealtyId INT = 0
 ,@RealtyType NVARCHAR (255) = NULL
 ,@RealtyAddress NVARCHAR (255) = NULL
-,@Area FLOAT = 0
+,@Area FLOAT = NULL
 ,@Cost FLOAT = NULL
 ,@OwnerId INT = NULL
 ,@Query INT

@@ -142,7 +142,7 @@ namespace lab2.DataAccess
                     robj.realty_id = Convert.ToInt32(ds.Tables[0].Rows[i]["realty_id"].ToString());
                     robj.realty_type = ds.Tables[0].Rows[i]["realty_type"].ToString();
                     robj.realty_address = ds.Tables[0].Rows[i]["realty_address"].ToString();
-                    robj.area = (float)Convert.ToDouble(ds.Tables[0].Rows[i]["area"].ToString());
+                    robj.area = (float)Convert.ToDouble(ds.Tables[0].Rows[i]["area"]);
                     robj.cost = (float)Convert.ToDouble(ds.Tables[0].Rows[i]["cost"].ToString());
                     robj.ownerid = Convert.ToInt32(ds.Tables[0].Rows[i]["ownerid"].ToString());
 

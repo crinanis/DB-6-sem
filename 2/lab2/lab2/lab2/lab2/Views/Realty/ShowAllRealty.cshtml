@@ -1,0 +1,64 @@
+﻿@model lab2.Models.Realty
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAllRealty</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "InsertRealty")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.realty_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.realty_address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ownerid)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model.ShowAllRealty) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.realty_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.realty_address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ownerid)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.realty_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.realty_id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

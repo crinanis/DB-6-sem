@@ -14,7 +14,6 @@
 <body>
     <p>
         @Html.ActionLink("Create New", "Insert")
-        @Html.ActionLink("My Task", "ShowContractsWithDate")
     </p>
     <table class="table">
         <tr>
@@ -35,32 +34,79 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model.ShowAllContracts) {
+
+        @{
+            var start = Request.QueryString["start"];
+            var end = Request.QueryString["end"];
+
+            if (start == null && end == null)
+            {
+                start = "01.01.1990";
+                end = DateTime.Now.ToString("dd.MM.yyyy");
+            }
+
+            DateTime start1;
+            DateTime end1;
+
+            DateTime.TryParseExact(start, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out start1);
+            DateTime.TryParseExact(end, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out end1);
+        }
+
+        <!--
+    <p>Значение параметра id: @start1</p>
+    <p>Значение параметра id: @end1</p>
+    -->
+
+        @{
+            int totalTerm = 0;
+            foreach (var item in Model.ShowAllContracts.Where(c => DateTime.TryParseExact(c.sign_date, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime signDate) && signDate >= start1 && signDate <= end1))
+            {
+                totalTerm += item.term;
+            }
+        }
+
+        @foreach (var item in Model.ShowAllContracts.Where(c => DateTime.TryParseExact(c.sign_date, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime signDate) && signDate >= start1 && signDate <= end1))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.realtyid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.realtorid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fare_code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.term)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sign_date)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.contract_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.contract_id })
+                </td>
+            </tr>
+        }
+
         <tr>
+            <td colspan="2"></td>
             <td>
-                @Html.DisplayFor(modelItem => item.realtyid)
+                <b>
+                    <i>
+                        Total term:
+                    </i>
+                </b>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.realtorid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fare_code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.term)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sign_date)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.contract_id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.contract_id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.contract_id })
+                <b>
+                    <i>
+                        @totalTerm
+                    </i>
+                </b>
             </td>
         </tr>
-    }
-    
     </table>
 </body>
 </html>

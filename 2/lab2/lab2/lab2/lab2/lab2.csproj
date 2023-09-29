@@ -100,7 +100,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Fare.cs" />
     <Compile Include="Models\IContract.cs" />
+    <Compile Include="Models\Owner.cs" />
+    <Compile Include="Models\Realtor.cs" />
     <Compile Include="Models\Realty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,6 +119,7 @@
     <Content Include="Views\Contract\ShowAllContracts.cshtml" />
     <Content Include="Views\Contract\Edit.cshtml" />
     <Content Include="Views\Contract\Delete.cshtml" />
+    <Content Include="Views\Contract\ShowContractsWithDate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
