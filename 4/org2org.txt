@@ -1,0 +1,1 @@
+ogr2ogr -overwrite -f MSSQLSpatial -lco "GEOM_TYPE=geography" -a_srs "EPSG:4326" "MSSQL:server=HOME-PC;database=map;trusted_connection=yes" "d:\1POIT\3\DB\labs\4\map\map.shp"

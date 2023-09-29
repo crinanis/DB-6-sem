@@ -1,0 +1,10 @@
+D:\1POIT\3\DB\labs\3\lab3\lab3\bin\Debug\lab3.dacpac
+D:\1POIT\3\DB\labs\3\lab3\lab3\bin\Debug\lab3.dll
+D:\1POIT\3\DB\labs\3\lab3\lab3\bin\Debug\lab3.pdb
+D:\1POIT\3\DB\labs\3\lab3\lab3\obj\Debug\lab3.sqlproj.AssemblyReference.cache
+D:\1POIT\3\DB\labs\3\lab3\lab3\obj\Debug\Model.xml
+D:\1POIT\3\DB\labs\3\lab3\lab3\obj\Debug\refactor.xml
+D:\1POIT\3\DB\labs\3\lab3\lab3\obj\Debug\postdeploy.sql
+D:\1POIT\3\DB\labs\3\lab3\lab3\obj\Debug\predeploy.sql
+D:\1POIT\3\DB\labs\3\lab3\lab3\obj\Debug\lab3.dll
+D:\1POIT\3\DB\labs\3\lab3\lab3\obj\Debug\lab3.pdb
